@@ -24,10 +24,10 @@ termux_step_make() {
 	rm gradle.properties
 
 	export ANDROID_HOME
-	export GRADLE_OPTS="-Dorg.gradle.daemon=false -Xmx1536m"
+	export GRADLE_OPTS="-Dorg.gradle.daemon=false -Xmx1536m "
 
 	$TERMUX_PKG_TMPDIR/gradle/gradle-$_GRADLE_VERSION/bin/gradle \
-		:app:assembleRelease
+		:app:assembleRelease --no-daemon
 }
 
 termux_step_make_install() {

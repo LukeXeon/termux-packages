@@ -387,6 +387,7 @@ main() {
     EXTRACTED_PACKAGES=()
 
     # Core utilities.
+    PACKAGES+=("termux-am")
     PACKAGES+=("proot-distro")
     PACKAGES+=("bash")
     PACKAGES+=("coreutils")
