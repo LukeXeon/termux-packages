@@ -1,0 +1,13 @@
+diff --git a/app/src/main/java/com/termux/termuxam/IActivityManager.java b/app/src/main/java/com/termux/termuxam/IActivityManager.java
+index 90c149d..6d665ee 100644
+--- a/app/src/main/java/com/termux/termuxam/IActivityManager.java
++++ b/app/src/main/java/com/termux/termuxam/IActivityManager.java
+@@ -29,7 +29,7 @@ class IActivityManager {
+     private CrossVersionReflectedMethod mIntentSenderSendMethod;
+
+     IActivityManager() throws Exception {
+-        this("com.termux");
++        this("@TERMUX_APP_PACKAGE@");
+     }
+
+     IActivityManager(String callingAppName) throws Exception {

@@ -1,0 +1,11 @@
+diff --git a/am-libexec-packaged b/am-libexec-packaged
+index 5e5f0e8..7a057b8 100755
+--- a/am-libexec-packaged
++++ b/am-libexec-packaged
+@@ -1,4 +1,4 @@
+-#!/data/data/com.termux/files/usr/bin/sh
+-export CLASSPATH=/data/data/com.termux/files/usr/libexec/termux-am/am.apk
++#!@TERMUX_PREFIX@/bin/sh
++export CLASSPATH=@TERMUX_PREFIX@/libexec/termux-am/am.apk
+ unset LD_LIBRARY_PATH LD_PRELOAD
+ exec /system/bin/app_process / com.termux.termuxam.Am "$@"
