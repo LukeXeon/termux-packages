@@ -394,7 +394,6 @@ main() {
     PACKAGES+=("dash")
     PACKAGES+=("gzip")
     PACKAGES+=("tar")
-    PACKAGES+=("xz-utils")
 
     for add_pkg in "${ADDITIONAL_PACKAGES[@]}"; do
       if [[ " ${PACKAGES[*]} " != *" $add_pkg "* ]]; then
