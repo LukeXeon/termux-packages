@@ -386,15 +386,8 @@ main() {
     PACKAGES=()
     EXTRACTED_PACKAGES=()
 
-    # Core utilities.
-    PACKAGES+=("termux-am")
-    PACKAGES+=("proot-distro")
-    PACKAGES+=("bash")
-    PACKAGES+=("coreutils")
-    PACKAGES+=("dash")
-    PACKAGES+=("gzip")
-    PACKAGES+=("tar")
-    PACKAGES+=("xz-utils")
+		# Core utilities.
+		PACKAGES+=("code-desktop-boot")
 
     for add_pkg in "${ADDITIONAL_PACKAGES[@]}"; do
       if [[ " ${PACKAGES[*]} " != *" $add_pkg "* ]]; then
