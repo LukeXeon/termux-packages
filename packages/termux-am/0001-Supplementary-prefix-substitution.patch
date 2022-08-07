@@ -1,0 +1,48 @@
+From 447a388ca4fd0b163e6ca8d37e0291e593503ed5 Mon Sep 17 00:00:00 2001
+From: luotinghui <694014820@qq.com>
+Date: Sat, 6 Aug 2022 23:51:30 +0800
+Subject: [PATCH] Supplementary prefix substitution
+
+---
+ am-apk-installed                                            | 2 +-
+ am-libexec-packaged                                         | 4 ++--
+ app/src/main/java/com/termux/termuxam/IActivityManager.java | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/am-apk-installed b/am-apk-installed
+index 6b65e07..5d93cbc 100755
+--- a/am-apk-installed
++++ b/am-apk-installed
+@@ -1,4 +1,4 @@
+-#!/data/data/com.termux/files/usr/bin/sh
++#!@TERMUX_PREFIX@/bin/sh
+ export CLASSPATH=$(pm path com.termux.termuxam|cut -d: -f2)
+ unset LD_LIBRARY_PATH LD_PRELOAD
+ exec /system/bin/app_process / com.termux.termuxam.Am "$@"
+diff --git a/am-libexec-packaged b/am-libexec-packaged
+index 5e5f0e8..7a057b8 100755
+--- a/am-libexec-packaged
++++ b/am-libexec-packaged
+@@ -1,4 +1,4 @@
+-#!/data/data/com.termux/files/usr/bin/sh
+-export CLASSPATH=/data/data/com.termux/files/usr/libexec/termux-am/am.apk
++#!@TERMUX_PREFIX@/bin/sh
++export CLASSPATH=@TERMUX_PREFIX@/libexec/termux-am/am.apk
+ unset LD_LIBRARY_PATH LD_PRELOAD
+ exec /system/bin/app_process / com.termux.termuxam.Am "$@"
+diff --git a/app/src/main/java/com/termux/termuxam/IActivityManager.java b/app/src/main/java/com/termux/termuxam/IActivityManager.java
+index 90c149d..6d665ee 100644
+--- a/app/src/main/java/com/termux/termuxam/IActivityManager.java
++++ b/app/src/main/java/com/termux/termuxam/IActivityManager.java
+@@ -29,7 +29,7 @@ class IActivityManager {
+     private CrossVersionReflectedMethod mIntentSenderSendMethod;
+ 
+     IActivityManager() throws Exception {
+-        this("com.termux");
++        this("@TERMUX_APP_PACKAGE@");
+     }
+ 
+     IActivityManager(String callingAppName) throws Exception {
+-- 
+2.32.1 (Apple Git-133)
+

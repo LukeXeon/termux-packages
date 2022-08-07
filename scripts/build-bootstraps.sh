@@ -406,8 +406,9 @@ main() {
 		if ! ${BOOTSTRAP_ANDROID10_COMPATIBLE}; then
 			PACKAGES+=("command-not-found")
 		else
-			PACKAGES+=("proot")
+		  PACKAGES+=("proot")
 		fi
+		PACKAGES+=("proot-distro")
 		PACKAGES+=("coreutils")
 		PACKAGES+=("curl")
 		PACKAGES+=("dash")
